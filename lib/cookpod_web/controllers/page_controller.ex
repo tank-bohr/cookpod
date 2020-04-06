@@ -6,7 +6,6 @@ defmodule CookpodWeb.PageController do
   end
 
   def terms(conn, _params) do
-    conn
-    |> render("terms.html", foo: "Я переменная")
+    render(conn, "terms.html", foo: "Я переменная")
   end
 end
