@@ -22,9 +22,9 @@ defmodule CookpodWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/terms", PageController, :terms
 
     resources "/sessions", SessionController, singleton: true
+    resources "/users", UserController, only: [:create]
   end
 
   scope "/", CookpodWeb do

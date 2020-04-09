@@ -10,7 +10,9 @@ defmodule Cookpod.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls.json": :test]
     ]
   end
 
@@ -43,7 +45,9 @@ defmodule Cookpod.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_slime, "~> 0.13.1"}
+      {:phoenix_slime, "~> 0.13.1"},
+      {:excoveralls, "~> 0.10", only: :test},
+      {:argon2_elixir, "~> 2.3"}
     ]
   end
 
