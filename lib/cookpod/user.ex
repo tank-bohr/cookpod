@@ -28,6 +28,7 @@ defmodule Cookpod.User do
     case Map.fetch(changeset.changes, :password) do
       {:ok, password} ->
         put_change(changeset, :password_hash, Argon2.hash_pwd_salt(password))
+
       :error ->
         changeset
     end
