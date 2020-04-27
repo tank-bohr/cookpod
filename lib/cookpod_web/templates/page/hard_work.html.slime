@@ -1,0 +1,3 @@
+.invisible#id = @id
+.jumbotron#msg
+  p.lead Working hard...

@@ -55,9 +55,24 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+const idElem = document.querySelector("#id");
+if (id !== undefined) {
+  const id = idElem.innerHTML;
+  let channel = socket.channel(`demo:${id}`, {})
+
+  channel.join()
+    .receive("ok", resp => { console.log("Joined successfully", resp) })
+    .receive("error", resp => { console.log("Unable to join", resp) })
+
+  channel.on("done", msg => {
+    const msgElem = document.querySelector("#msg");
+    msgElem.innerText = "Done!";
+  });
+}
+
+// channel.on("new_msg", msg => console.log("Got message", msg))
+// channel.push("ping", {foo: "bar"})
+//   .receive("ok", (msg) => console.log("created message", msg) )
+// channel
 
 export default socket

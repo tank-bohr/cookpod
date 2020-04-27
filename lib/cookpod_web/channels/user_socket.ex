@@ -3,6 +3,7 @@ defmodule CookpodWeb.UserSocket do
 
   ## Channels
   # channel "room:*", CookpodWeb.RoomChannel
+  channel "demo:*", CookpodWeb.DemoChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
