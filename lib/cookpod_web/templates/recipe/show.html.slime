@@ -1,0 +1,12 @@
+h1 Show Recipe
+
+ul
+  li
+    strong Name:&nbsp;
+    = @recipe.name
+  li
+    strong Description:&nbsp;
+    = @recipe.description
+
+span= link "Edit", to: Routes.recipe_path(@conn, :edit, @recipe)
+span= link "Back", to: Routes.recipe_path(@conn, :index)

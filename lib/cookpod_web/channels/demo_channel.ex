@@ -13,7 +13,7 @@ defmodule CookpodWeb.DemoChannel do
 
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
-  def handle_in("ping", payload, socket) do
+  def handle_in("ping", _payload, socket) do
     {:reply, {:ok, %{from_server: true}}, socket}
   end
 
