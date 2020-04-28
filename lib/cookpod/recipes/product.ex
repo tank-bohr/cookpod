@@ -8,6 +8,8 @@ defmodule Cookpod.Recipes.Product do
     field :carbs, :integer
     field :proteins, :integer
 
+    # has_many :recipes, through: [...]
+
     timestamps()
   end
 

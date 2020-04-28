@@ -12,6 +12,10 @@ defmodule Cookpod.Recipes.Recipe do
     has_many :ingridients, Ingredient
     has_many :products, through: [:ingridients, :product]
 
+    embeds_one :meta, Meta do
+      field :vegan, :string, default: "none"
+    end
+
     timestamps()
   end
 

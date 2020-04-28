@@ -10,18 +10,18 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-leek = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "leek"})
-garlic = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "garlic"})
+leek     = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "leek"})
+garlic   = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "garlic"})
 broccoli = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "broccoli"})
-butter = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "butter"})
-thyme = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "thyme"})
-flour = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "flour"})
-milk = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "milk"})
+butter   = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "butter"})
+thyme    = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "thyme"})
+flour    = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "flour"})
+milk     = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "milk"})
 macaroni = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "dried macaroni"})
 parmesan = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "Parmesan cheese"})
-cheddar = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "Cheddar cheese"})
-spinach = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "spinach"})
-almonds = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "almonds"})
+cheddar  = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "Cheddar cheese"})
+spinach  = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "spinach"})
+almonds  = Cookpod.Repo.insert!(%Cookpod.Recipes.Product{name: "almonds"})
 
 recipe =
   Cookpod.Repo.insert!(%Cookpod.Recipes.Recipe{
