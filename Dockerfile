@@ -28,12 +28,10 @@ RUN cd assets \
 
 FROM alpine:latest
 
-ARG app_name=cookpod
-
-RUN apk update && apk --no-cache --update add ca-certificates openssl-dev
+RUN apk update && apk --no-cache --update add ca-certificates openssl-dev ncurses-dev
 
 COPY --from=build-stage /opt/release /opt/app
 
 WORKDIR /opt/app
 
-CMD /opt/app/bin/${app_name} start
+CMD /opt/app/bin/cookpod start
