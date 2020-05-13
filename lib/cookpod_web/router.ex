@@ -34,6 +34,15 @@ defmodule CookpodWeb.Router do
     get "/terms", PageController, :terms
   end
 
+  if Mix.env() in [:dev, :test] do
+    import Phoenix.LiveDashboard.Router
+
+    scope "/" do
+      pipe_through :browser
+      live_dashboard "/dashboard", metrics: CookpodWeb.Telemetry
+    end
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", CookpodWeb do
   #   pipe_through :api

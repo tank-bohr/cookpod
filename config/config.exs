@@ -15,7 +15,7 @@ config :cookpod, CookpodWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "+Y0dQezR7SDPae0DuQrQEQZUFXSIhnfkKPtMe+g+1uEVzx3SKjegZG5e+LxEvoUV",
   render_errors: [view: CookpodWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Cookpod.PubSub, adapter: Phoenix.PubSub.PG2],
+  pubsub_server: Cookpod.PubSub,
   live_view: [signing_salt: "Lq24HnRq"]
 
 # Configures Elixir's Logger

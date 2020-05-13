@@ -8,6 +8,7 @@ defmodule Cookpod.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      {Phoenix.PubSub, [name: Cookpod.PubSub, adapter: Phoenix.PubSub.PG2]},
       # Start the Ecto repository
       Cookpod.Repo,
       # Start the endpoint when the application starts
