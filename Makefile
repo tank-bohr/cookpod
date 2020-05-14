@@ -1,5 +1,8 @@
 server:
-	iex --name cookpod --cookie qqke -S mix phx.server
+	iex --sname cookpod --cookie qkie -S mix phx.server
+
+observer:
+	erl -sname observer -setcookie qkie -run observer
 
 db:
 	docker-compose up -d
