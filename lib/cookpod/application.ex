@@ -6,15 +6,15 @@ defmodule Cookpod.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
     children = [
-      {Phoenix.PubSub, [name: Cookpod.PubSub, adapter: Phoenix.PubSub.PG2]},
       # Start the Ecto repository
       Cookpod.Repo,
-      # Start the endpoint when the application starts
+       # Start the Telemetry supervisor
+      CookpodWeb.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, [name: Cookpod.PubSub, adapter: Phoenix.PubSub.PG2]},
+      # Start the Endpoint (http/https)
       CookpodWeb.Endpoint
-      # Starts a worker by calling: Cookpod.Worker.start_link(arg)
-      # {Cookpod.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

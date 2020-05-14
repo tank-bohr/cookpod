@@ -11,9 +11,10 @@ defmodule CookpodWeb.Telemetry do
     children = [
       # Telemetry poller will execute the given period measurements
       # every 10_000ms. Learn more here: https://hexdocs.pm/telemetry_metrics
-      {:telemetry_poller, measurements: periodic_measurements(), period: 10_000}
+      {:telemetry_poller, measurements: periodic_measurements(), period: 10_000},
       # Add reporters as children of your supervision tree.
-      # {Telemetry.Metrics.ConsoleReporter, metrics: metrics()}
+      # {Telemetry.Metrics.ConsoleReporter, metrics: metrics()},
+      {TelemetryMetricsPrometheus, metrics: metrics()}
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
@@ -22,26 +23,26 @@ defmodule CookpodWeb.Telemetry do
   def metrics do
     [
       # Phoenix Metrics
-      summary("phoenix.endpoint.stop.duration",
+      last_value("phoenix.endpoint.stop.duration",
         unit: {:native, :millisecond}
       ),
-      summary("phoenix.router_dispatch.stop.duration",
+      last_value("phoenix.router_dispatch.stop.duration",
         tags: [:route],
         unit: {:native, :millisecond}
       ),
 
       # Database Metrics
-      summary("cookpod.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("cookpod.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("cookpod.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("cookpod.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("cookpod.repo.query.idle_time", unit: {:native, :millisecond}),
+      last_value("cookpod.repo.query.total_time", unit: {:native, :millisecond}),
+      last_value("cookpod.repo.query.decode_time", unit: {:native, :millisecond}),
+      last_value("cookpod.repo.query.query_time", unit: {:native, :millisecond}),
+      last_value("cookpod.repo.query.queue_time", unit: {:native, :millisecond}),
+      last_value("cookpod.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
-      summary("vm.memory.total", unit: {:byte, :kilobyte}),
-      summary("vm.total_run_queue_lengths.total"),
-      summary("vm.total_run_queue_lengths.cpu"),
-      summary("vm.total_run_queue_lengths.io")
+      last_value("vm.memory.total", unit: {:byte, :kilobyte}),
+      last_value("vm.total_run_queue_lengths.total"),
+      last_value("vm.total_run_queue_lengths.cpu"),
+      last_value("vm.total_run_queue_lengths.io")
     ]
   end
 

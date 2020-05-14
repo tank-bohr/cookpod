@@ -50,8 +50,10 @@ defmodule Cookpod.MixProject do
       {:phoenix_slime, "~> 0.13.1"},
       {:excoveralls, "~> 0.10", only: :test},
       {:argon2_elixir, "~> 2.3"},
+      {:telemetry_poller, "~> 0.4"},
       {:telemetry_metrics, "~> 0.4"},
-      {:telemetry_poller, "~> 0.4"}
+      {:telemetry_metrics_prometheus, "~> 0.5"},
+      {:recon, "~> 2.5"}
     ]
   end
 

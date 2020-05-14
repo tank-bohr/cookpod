@@ -14,6 +14,13 @@ services:
     image: bitnami/prometheus
     ports:
       - "9090:9090"
+    command:
+      - "--config.file=/app/prometheus.yml"
+      - "--storage.tsdb.path=/opt/bitnami/prometheus/data"
+      - "--web.console.libraries=/opt/bitnami/prometheus/conf/console_libraries"
+      - "--web.console.templates=/opt/bitnami/prometheus/conf/consoles"
+    volumes:
+      - .:/app
 
   grafana:
     image: grafana/grafana

@@ -1,5 +1,5 @@
 server:
-	iex -S mix phx.server
+	iex --name cookpod --cookie qqke -S mix phx.server
 
 db:
 	docker-compose up -d
